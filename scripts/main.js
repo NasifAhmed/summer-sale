@@ -17,7 +17,7 @@ function updateCouponButtonState() {
 
 couponInput.addEventListener("keyup", function (event) {
     const couponCode = event.target.value;
-    console.log(couponCode);
+    // console.log(couponCode);
     if (couponCode === "SELL200") {
         couponCheck = true;
     }
@@ -25,7 +25,7 @@ couponInput.addEventListener("keyup", function (event) {
 });
 
 function handleClick(event, price) {
-    console.log(event.childNodes[3].childNodes[3].innerText);
+    // console.log(event.childNodes[3].childNodes[3].innerText);
     total += price;
     totalPrice.innerText = `Total Price: ${total}TK`;
     const list = document.createElement("li");
@@ -53,4 +53,7 @@ function resetPage() {
     totalAll.innerText = "Total: 0TK";
     total = 0;
     couponCheck = false;
+    couponBtn.setAttribute("disabled", "");
+    couponBtn.classList.add("bg-gray-300");
+    couponBtn.classList.remove("bg-[#E527B2]");
 }
