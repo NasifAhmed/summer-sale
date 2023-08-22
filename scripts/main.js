@@ -6,6 +6,7 @@ const discount = document.getElementById("discount");
 const totalAll = document.getElementById("mainTotal");
 const couponBtn = document.getElementById("couponBtn");
 const couponInput = document.getElementById("couponInput");
+const purchaseBtn = document.getElementById("purchaseButton");
 
 function updateCouponButtonState() {
     if (couponCheck === true && total >= 200) {
@@ -33,6 +34,11 @@ function handleClick(event, price) {
     listParent.appendChild(list);
     totalAll.innerText = `Total: ${total}TK`;
     updateCouponButtonState();
+    if (total > 0) {
+        purchaseBtn.removeAttribute("disabled");
+        purchaseBtn.classList.remove("bg-gray-300");
+        purchaseBtn.classList.add("bg-[#E527B2]");
+    }
 }
 
 function handleCoupon(event) {
@@ -56,4 +62,7 @@ function resetPage() {
     couponBtn.setAttribute("disabled", "");
     couponBtn.classList.add("bg-gray-300");
     couponBtn.classList.remove("bg-[#E527B2]");
+    purchaseBtn.setAttribute("disabled", "");
+    purchaseBtn.classList.add("bg-gray-300");
+    purchaseBtn.classList.remove("bg-[#E527B2]");
 }
